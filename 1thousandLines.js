@@ -536,5 +536,17 @@ class Person {
 	}
 }
 
+class Box extends React.Component {
+  render() {
+  	const randval = Math.floor(Math.random()*100);
+  	return (
+  		// html goes here
+
+  		)
+
+  	
+  }
+}
+ReactDom.render(<Box />, document.getElementById("app"));
 
 })();
