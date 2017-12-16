@@ -333,6 +333,43 @@ function runit(input){
 }
 
 
+function preturn(text){
+
+	let p1 = new Promise((resolve, reject) => {
+	  setTimeout(function(){
+	  	console.log(text);
+	  	resolve(text);
+	  }, 2000);
+	});
+	return p1;
+}
+
+preturn('my')
+.then((data) => {
+	return new Promise((resolve, reject) => {
+		setTimeout(function(){
+		    resolve(data+' name');
+		}, 1000);
+	});
+})
+.then((data) => {
+	console.log(data);
+	return new Promise((resolve, reject) => {
+		setTimeout(function(){
+		    resolve(data+' is');
+		}, 1000);
+	});
+})
+.then((data) => {
+	console.log(data);
+		setTimeout(function(){
+		    console.log(data+' Matthew');
+		}, 1000);
+	
+})
+.catch(() => {
+	console.log('there was an error');
+});
 
 
 })();

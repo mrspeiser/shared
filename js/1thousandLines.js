@@ -549,4 +549,27 @@ class Box extends React.Component {
 }
 ReactDom.render(<Box />, document.getElementById("app"));
 
+
+
+// class Row extends Component {
+// 	render(){
+// 		return (
+
+// 		    <div style={{
+// 		    	display: 'flex',
+// 		    	flexDirection: 'row',
+// 		    	justifyContent: 'space-around'
+// 		    }}>
+// 		      {this.props.children}
+// 		      //everything inside Row element now has
+// 		      //these styles
+// 		    </div>
+
+// 		)
+// 	}
+// }
+
+
+fun
+
 })();
