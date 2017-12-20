@@ -549,4 +549,93 @@ class Box extends React.Component {
 }
 ReactDom.render(<Box />, document.getElementById("app"));
 
+
+
+async function waitAndMaybeReject() {
+  // Wait one second
+  await new Promise(r => setTimeout(r, 1000));
+  // Toss a coin
+  const isHeads = Boolean(Math.round(Math.random()));
+
+  if (isHeads) return 'yay';
+  throw Error('Boo!');
+}
+
+async function foo() {
+  try {
+    return await waitAndMaybeReject();
+  }
+  catch (e) {
+    return 'caught';
+  }
+}
+
+
+var arr = [1,2,3,4,5];
+
+for(let val of arr){
+	console.log(val);
+}
+
+function sumArguments(){
+	var total = 0;
+	for(var i = 0; i < arguments.length){
+		total+=arguments[i];
+	}
+	return total;
+}
+
+function smallestValue(...args){
+	return Math.min(...args);
+}
+
+function placeInMiddle(arr, vals){
+	let mid = Math.floor(arr.length/2);
+	arr.splice(mid, 0, ...vals);
+	return arr
+}
+
+function joinArrays(...args){
+  return args.reduce((acc, next) => acc.concat(next), []);
+}
+
+function sumEvenArgs(...args){
+	return args.reduce((acc, next) => next % 2 === 0 ? acc += next : acc, 0);
+}
+
+function flip(fn, thisArg, ...outerArgs){
+	return function(...innerArgs){
+		let allArgs = outerArgs.concat(innerArgs).slice(0, fn.length);
+		return fn.apply(thisArg, allArgs.reverse());
+	}
+}
+
+function bind(fn, thisArg, ...outerArgs){
+	return function(...innerArgs){
+		return fn.apply(thisArg, [...outerArgs, ...innerArgs])
+	}
+}
+
+var thisarr = [
+{
+	'name': 'Matthew',
+    'hobby':'coding',
+    'birthday': 23
+},
+{
+	'name': 'Derek',
+	'hobby':'hiking',
+	'birthday':15
+},
+{
+	'name': 'Samantha',
+	'hobby': 'movies',
+	'birthday': 10
+}
+]
+function sortObj(obj){
+	return Object.keys(obj).sort().reduce((acc, next) => (acc[next] = obj[next], acc),{});
+}
+
+
 })();
